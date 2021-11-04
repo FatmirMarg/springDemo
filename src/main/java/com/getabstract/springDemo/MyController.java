@@ -17,8 +17,8 @@ public class MyController {
 		
 	}
 	@GetMapping("/pets")
-	public String tiere(String hunde, Model pets) {
-		pets.addAttribute("Hunde sind super!!!!!", hunde);
+	public String pets(String hunde, Model model) {
+		model.addAttribute("hunde", hunde);
 		return "hunde";
 		
 	}
