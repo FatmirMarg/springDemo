@@ -12,7 +12,7 @@ public class MyController {
 		String a = "joooo";
 		model.addAttribute("a", a);
 		model.addAttribute("firstName", firstName);
-		model.addAttribute("Hund", bestesTier);
+		model.addAttribute("<img src=\"https://upload.wikimedia.org/wikipedia/commons/6/67/Borussia_Dortmund_logo.svg\">", bestesTier);
 		return "greeting";
 		
 	}
