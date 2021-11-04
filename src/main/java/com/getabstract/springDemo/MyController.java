@@ -16,4 +16,10 @@ public class MyController {
 		return "greeting";
 		
 	}
+	@GetMapping("/pets")
+	public String tiere(String hunde, Model pets) {
+		pets.addAttribute("Hunde sind super!!!!!", hunde);
+		return "hunde";
+		
+	}
 }
