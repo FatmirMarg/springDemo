@@ -50,7 +50,7 @@ public class MyController
         return "sub";
     }
 
-    @GetMapping("/calc")
+    @GetMapping("/calcPro")
     public String AddOrSub(
             @RequestParam(required = false, defaultValue = "0") int num1,
             @RequestParam(required = false, defaultValue = "0") int num2,
@@ -58,6 +58,16 @@ public class MyController
             @RequestParam(required = false, defaultValue = "") String sub,
             @RequestParam(required = false, defaultValue = "") String multi,
             @RequestParam(required = false, defaultValue = "") String div,
+            @RequestParam(required = false, defaultValue = "1") String one,
+            @RequestParam(required = false, defaultValue = "2") String two,
+            @RequestParam(required = false, defaultValue = "3") String three,
+            @RequestParam(required = false, defaultValue = "4") String four,
+            @RequestParam(required = false, defaultValue = "5") String five,
+            @RequestParam(required = false, defaultValue = "6") String six,
+            @RequestParam(required = false, defaultValue = "7") String seven,
+            @RequestParam(required = false, defaultValue = "8") String eight,
+            @RequestParam(required = false, defaultValue = "9") String nine,
+            @RequestParam(required = false, defaultValue = "0") String zero,
 
             Model model)
     {
@@ -72,6 +82,7 @@ public class MyController
         else if (sub.equals("-"))
         {
             result = num1 - num2;
+            operator2 = "-";
         }
         else if (multi.equals("*"))
         {
@@ -88,7 +99,16 @@ public class MyController
         model.addAttribute("num2", num2);
         model.addAttribute("result", result);
         model.addAttribute("operator2", operator2);
-
-        return "calc";
+        model.addAttribute("one", one);
+        model.addAttribute("two", two);
+        model.addAttribute("three", three);
+        model.addAttribute("four", four);
+        model.addAttribute("five", five);
+        model.addAttribute("six", six);
+        model.addAttribute("seven", seven);
+        model.addAttribute("eight", eight);
+        model.addAttribute("nine", nine);
+        model.addAttribute("zero", zero);
+        return "calcPro";
     }
 }

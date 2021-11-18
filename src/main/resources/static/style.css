@@ -1,0 +1,20 @@
+.wholeCalculater{
+      text-align: center;
+      background-color: blue;
+      width: 220px;
+      margin: 0 auto;
+      border-radius: 20px;
+}
+
+.arithmeticSymbol{
+    
+      padding-bottom: 20px;
+}
+
+.calculation{
+      
+    color: whitesmoke;
+    padding: 20px;
+    
+}
+
