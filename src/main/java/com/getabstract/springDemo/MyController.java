@@ -72,7 +72,6 @@ public class MyController
         else if (sub.equals("-"))
         {
             result = num1 - num2;
-            operator2 = "-";
         }
         else if (multi.equals("*"))
         {
