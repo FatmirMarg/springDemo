@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	
+
 <title>springDemo</title>
 
 <link href="style.css" rel="stylesheet">
@@ -35,50 +35,50 @@
 				<input type="submit" name="operator" value="*">
 				<input type="submit" name="operator" value="/">
 			</div>
-		
+			
 			<div class="firstColum">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="1"> <!-- dynamisch mit <th:xy="${z}"> -->
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="2">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="3">
+				<input type="submit" th:name="newInput" value="1"> <!-- dynamisch mit <th:xy="${z}"> -->
+				<input type="submit" th:name="newInput" value="2">
+				<input type="submit" th:name="newInput" value="3">
 			</div>
 			
 			<div class="secondColum">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="4">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="5">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="6">
+				<input type="submit" th:name="newInput" value="4">
+				<input type="submit" th:name="newInput" value="5">
+				<input type="submit" th:name="newInput" value="6">
 			</div>
 			
 			<div class="thirdColum">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="7">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="8">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="9">
+				<input type="submit" th:name="newInput" value="7">
+				<input type="submit" th:name="newInput" value="8">
+				<input type="submit" th:name="newInput" value="9">
 				
 			<div class="fourthColum">
-				<input type="submit" th:name="${firstNumber == null ? 'firstNumber' : 'secondNumber'}" value="0">
+				<input type="submit" th:name="newInput" value="0">
 				<input type="submit" name="." value=".">
 				<button type="submit" name="execute" value="true"> = </button>
-				
+				<div class="reset">
+					<a href="/calcPro">C</a>
+				</div>
+								
 			</div> 
 			</div>
 		</div>
 	</div>
-	<div th:if="${firstNumber != null}">
-	<input th:value = "${firstNumber}" name = "firstNumber">
+	
+	<div th:if="${firstNumber.length >= 0}">
+		<input th:value = "${firstNumber}" name = "firstNumber">
 	</div>
 	
-	<div th:if="${operator.length > 0}">
-	<input th:value = "${operator}" name = "operator">
+	<div th:if="${operator.length < 2}" >
+		<input th:value = "${operator}" name = "operator">
 	</div>
 	
-	<div th:if="${secondNumber != null}">
-	<input th:value = "${secondNumber}" name = "secondNumber">
+	<div th:if="${secondNumber.length >= 0}">
+		<input th:value = "${secondNumber}" name = "secondNumber">
 	</div>
-	
-	
+		
 	</form>	
-	
-	
-	
 
 </body>
 

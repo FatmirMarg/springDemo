@@ -52,44 +52,63 @@ public class MyController
 
     @GetMapping("/calcPro")
     public String AddOrSub(
-            @RequestParam(required = false) Integer firstNumber,
-            @RequestParam(required = false) Integer secondNumber,
+            @RequestParam(required = false, defaultValue = "") String firstNumber,
+            @RequestParam(required = false, defaultValue = "") String secondNumber,
             @RequestParam(required = false, defaultValue = "") String operator,
+            @RequestParam(required = false, defaultValue = "0") int newInput,
             @RequestParam(required = false) boolean execute, Model model)
     {
-        System.out.println(operator);
-
-        int result;
-        if (secondNumber != null && execute == true)
+        System.out.println(newInput);
+        if (firstNumber != null && secondNumber != null && execute == true)
         {
 
-            if (operator.equals("+"))
-            {
-                result = firstNumber + secondNumber;
-                model.addAttribute("result", result);
-            }
-            else if (operator.equals("-"))
-            {
-                result = firstNumber - secondNumber;
-                model.addAttribute("result", result);
-            }
-            else if (operator.equals("*"))
-            {
-                result = firstNumber * secondNumber;
-                model.addAttribute("result", result);
+            int firstNumberConvert = Integer.valueOf(firstNumber);
+            int secondNumberConvert = Integer.valueOf(secondNumber);
+            model.addAttribute("result", calculate(operator, firstNumberConvert, secondNumberConvert));
 
-            }
-            else if (operator.equals("/"))
-            {
-                result = firstNumber / secondNumber;
-                model.addAttribute("result", result);
-
-            }
         }
+        if (operator.length() <= 0)
+        {
+            firstNumber = firstNumber + newInput;
+        }
+        else
+        {
+            secondNumber = secondNumber + newInput;
+        }
+
         model.addAttribute("firstNumber", firstNumber);
         model.addAttribute("operator", operator);
         model.addAttribute("secondNumber", secondNumber);
 
         return "calcPro";
     }
+
+    private int calculate(String operator, int firstNumberConvert, int secondNumberConvert)
+    {
+
+        Integer result = null;
+        if (operator.equals("+"))
+        {
+            result = firstNumberConvert + secondNumberConvert;
+
+        }
+        else if (operator.equals("-"))
+        {
+            result = firstNumberConvert - secondNumberConvert;
+
+        }
+        else if (operator.equals("*"))
+        {
+            result = firstNumberConvert * secondNumberConvert;
+
+        }
+        else if (operator.equals("/"))
+        {
+            result = firstNumberConvert / secondNumberConvert;
+
+        }
+
+        return result;
+    }
+
 }
