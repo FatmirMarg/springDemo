@@ -5,6 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.Builder;
+import lombok.Value;
+
 @Controller
 public class MyController
 {
@@ -51,64 +54,112 @@ public class MyController
     }
 
     @GetMapping("/calcPro")
-    public String AddOrSub(
-            @RequestParam(required = false, defaultValue = "") String firstNumber,
-            @RequestParam(required = false, defaultValue = "") String secondNumber,
-            @RequestParam(required = false, defaultValue = "") String operator,
-            @RequestParam(required = false, defaultValue = "0") int newInput,
-            @RequestParam(required = false) boolean execute, Model model)
+    public String calc(
+            @RequestParam(required = false, defaultValue = "0") String firstNumber,
+            @RequestParam(required = false, defaultValue = "0") String secondNumber,
+            @RequestParam(required = false, defaultValue = "?") String operator,
+            @RequestParam(required = false, defaultValue = "") String button,
+            Model model)
     {
-        System.out.println(newInput);
-        if (firstNumber != null && secondNumber != null && execute == true)
-        {
+        CalcOutput output = calcModel(
+                CalcInput.builder()
+                        .firstNumber(Integer.valueOf(firstNumber))
+                        .secondNumber(Integer.valueOf(secondNumber))
+                        .operator(operator)
+                        .button(button)
+                        .build());
 
-            int firstNumberConvert = Integer.valueOf(firstNumber);
-            int secondNumberConvert = Integer.valueOf(secondNumber);
-            model.addAttribute("result", calculate(operator, firstNumberConvert, secondNumberConvert));
-
-        }
-        if (operator.length() <= 0)
-        {
-            firstNumber = firstNumber + newInput;
-        }
-        else
-        {
-            secondNumber = secondNumber + newInput;
-        }
-
-        model.addAttribute("firstNumber", firstNumber);
-        model.addAttribute("operator", operator);
-        model.addAttribute("secondNumber", secondNumber);
+        model.addAttribute("firstNumber", output.firstNumber);
+        model.addAttribute("operator", output.operator);
+        model.addAttribute("secondNumber", output.secondNumber);
+        model.addAttribute("result", output.result);
 
         return "calcPro";
     }
 
-    private int calculate(String operator, int firstNumberConvert, int secondNumberConvert)
+    @Value
+    @Builder
+    public static class CalcInput
+    {
+        int firstNumber;
+        int secondNumber;
+        String operator;
+        String button;
+    }
+
+    @Value
+    @Builder
+    public static class CalcOutput
+    {
+        int firstNumber;
+        int secondNumber;
+        String operator;
+        String result;
+    }
+
+    protected static CalcOutput calcModel(CalcInput input)
+    {
+        return MyController.CalcOutput.builder()
+                .firstNumber(input.firstNumber)
+                .operator(input.operator)
+                .secondNumber(input.secondNumber)
+                .result("" + calculate(input.operator, input.firstNumber, input.secondNumber))
+                .build();
+    }
+
+    protected static int calculate(String operator, int firstNumberConvert, int secondNumberConvert)
     {
 
-        Integer result = null;
         if (operator.equals("+"))
         {
-            result = firstNumberConvert + secondNumberConvert;
+            return firstNumberConvert + secondNumberConvert;
 
         }
         else if (operator.equals("-"))
         {
-            result = firstNumberConvert - secondNumberConvert;
+            return firstNumberConvert - secondNumberConvert;
 
         }
         else if (operator.equals("*"))
         {
-            result = firstNumberConvert * secondNumberConvert;
+            return firstNumberConvert * secondNumberConvert;
 
         }
         else if (operator.equals("/"))
         {
-            result = firstNumberConvert / secondNumberConvert;
+            return firstNumberConvert / secondNumberConvert;
 
         }
+        else if (operator.equals("?"))
+        {
+            return 0;
 
-        return result;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    protected int addition(int firstN, int secondN)
+    {
+        return firstN + secondN;
+
+    }
+
+    protected int sub(int firstN, int secondN)
+    {
+        return firstN - secondN;
+
+    }
+
+    protected int div(int firstN, int secondN)
+    {
+        return firstN / secondN;
+
+    }
+
+    protected int multi(int firstN, int secondN)
+    {
+        return firstN * secondN;
+
     }
 
 }

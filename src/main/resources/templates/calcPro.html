@@ -5,8 +5,8 @@
 
 <title>springDemo</title>
 
-<link href="style.css" rel="stylesheet">
-
+<link href="/style.css" rel="stylesheet">
+<script src="/calculator.js" type="text/javascript" defer></script> <!-- defer == niedrige prio -->
 
       
 </head>
@@ -17,9 +17,7 @@
 
 <h1>Willkommen beim Taschenrechner auf Wish</h1>
 <hr>
-	
-	<form>
-	
+		
 	<div class="wholeCalculater">
 	
 		<div class="calculation">
@@ -27,59 +25,51 @@
 			<input type="text" th:value="${result}"><br>
 			
 		</div>
+		<form>
 		
-		<div class=arithmeticSymbol>
-			<div id="operations">
-				<input type="submit" name="operator" value="+">
-				<input type="submit" name="operator" value="-">
-				<input type="submit" name="operator" value="*">
-				<input type="submit" name="operator" value="/">
-			</div>
-			
-			<div class="firstColum">
-				<input type="submit" th:name="newInput" value="1"> <!-- dynamisch mit <th:xy="${z}"> -->
-				<input type="submit" th:name="newInput" value="2">
-				<input type="submit" th:name="newInput" value="3">
-			</div>
-			
-			<div class="secondColum">
-				<input type="submit" th:name="newInput" value="4">
-				<input type="submit" th:name="newInput" value="5">
-				<input type="submit" th:name="newInput" value="6">
-			</div>
-			
-			<div class="thirdColum">
-				<input type="submit" th:name="newInput" value="7">
-				<input type="submit" th:name="newInput" value="8">
-				<input type="submit" th:name="newInput" value="9">
-				
-			<div class="fourthColum">
-				<input type="submit" th:name="newInput" value="0">
-				<input type="submit" name="." value=".">
-				<button type="submit" name="execute" value="true"> = </button>
-				<div class="reset">
-					<a href="/calcPro">C</a>
-				</div>
-								
-			</div> 
-			</div>
+		<input class="firstNumber" type="text" th:value="${firstNumber == 0 ? '' : firstNumber}" name="firstNumber">
+		<input class="operator"  type="text" th:value="${operator == '?' ? '' : operator}" name="operator">
+		<input class="secondNumber" type="text"  th:value="${secondNumber == 0 ? '' : secondNumber}" name="secondNumber">
+		
+		<div class="operations">
+			<button name="operationAdd" type="button" value="+"> + </button>
+			<button name="operationSub" type="button" value="-"> - </button>
+			<button name="operationMulti" type="button" value="*"> * </button>
+			<button name="operationDiv" type="button" value="/"> / </button>
 		</div>
-	</div>
-	
-	<div th:if="${firstNumber.length >= 0}">
-		<input th:value = "${firstNumber}" name = "firstNumber">
-	</div>
-	
-	<div th:if="${operator.length < 2}" >
-		<input th:value = "${operator}" name = "operator">
-	</div>
-	
-	<div th:if="${secondNumber.length >= 0}">
-		<input th:value = "${secondNumber}" name = "secondNumber">
-	</div>
 		
-	</form>	
+		<div class="firstColum">
+		
+			<button name="button" type="button" value="1"> 1 </button>
+			<button name="button" type="button" value="2"> 2 </button>
+			<button name="button" type="button" value="3"> 3 </button>
+		</div>
+		<div class="secondColum">
+		
+			<button name="button" type="button" value="4"> 4 </button>
+			<button name="button" type="button" value="5"> 5 </button>
+			<button name="button" type="button" value="6"> 6 </button>
+		</div>
+		<div class="thirdColum">
+		
+			<button name="button" type="button" value="7"> 7 </button>
+			<button name="button" type="button" value="8"> 8 </button>
+			<button name="button" type="button" value="9"> 9 </button>
+			
+			
+		</div>
+		<div class="fourthColum">
+		
+			<button name="button" type="button" value="0"> 0 </button>
+			<button type="submit" name="button" value="="> = </button>
+			<a href="http://localhost:8080/calcPro">C</a>
+		</div>
+		</form>
+		
+	</div>
+	
 
 </body>
 
 </html>
+
