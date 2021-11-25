@@ -22,11 +22,11 @@
 	
 		<div class="calculation">
 			<label for="calculation">Calculation</label><br>
-			<input type="text" th:value="${result}"><br>
+			<input type="text" th:value="${'result = ' + result}"><br>
 			
 		</div>
 		<form>
-		
+	
 		<input class="firstNumber" type="text" th:value="${firstNumber == 0 ? '' : firstNumber}" name="firstNumber">
 		<input class="operator"  type="text" th:value="${operator == '?' ? '' : operator}" name="operator">
 		<input class="secondNumber" type="text"  th:value="${secondNumber == 0 ? '' : secondNumber}" name="secondNumber">
@@ -62,8 +62,12 @@
 		
 			<button name="button" type="button" value="0"> 0 </button>
 			<button type="submit" name="button" value="="> = </button>
+		</div>
+		
+		<div class="C"> 
 			<a href="http://localhost:8080/calcPro">C</a>
 		</div>
+		
 		</form>
 		
 	</div>

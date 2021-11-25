@@ -1,25 +1,51 @@
 .wholeCalculater{
       text-align: center;
-      background-color: blue;
+      background-image: linear-gradient(to bottom, #059624, #3dab23, #61c120, #84d61b, #a8eb12);
       width: 220px;
       margin: 0 auto;
       border-radius: 20px;
 }
 
-.arithmeticSymbol{
-      padding-bottom: 20px;
+.operations{
+      padding-top: 20px;
       
 }
 
-.calculation{
-    color: whitesmoke;
-    padding: 20px;
+.firstColum{
+   
+    padding-top: 10px;
     
 }
 
+.secondColum{
+   
+      padding-top: 10px;
+      
+  }
+
+  .thirdColum{
+   
+      padding-top: 10px;
+      
+  }
+
+  .fourthColum{
+   
+      padding: 15PX;
+      
+  }
+
 .reset{
-      margin-top: 20px;
+      margin: 15px;
       background-color: white;
+}
+
+.calculation{
+      padding-top: 20px;
+}
+.C{
+      padding: 15px;
+      border-radius:  0 0 15px 15px ;
 }
 
 
