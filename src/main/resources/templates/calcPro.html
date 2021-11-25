@@ -21,8 +21,8 @@
 	<div class="wholeCalculater">
 	
 		<div class="calculation">
-			<label for="calculation">Calculation</label><br>
-			<input type="text" th:value="${'result = ' + result}"><br>
+			<label for="calculation" class="calculationText">Calculation</label><br>
+			<input type="text" th:value="${result}"><br>
 			
 		</div>
 		<form>
@@ -32,36 +32,36 @@
 		<input class="secondNumber" type="text"  th:value="${secondNumber == 0 ? '' : secondNumber}" name="secondNumber">
 		
 		<div class="operations">
-			<button name="operationAdd" type="button" value="+"> + </button>
-			<button name="operationSub" type="button" value="-"> - </button>
-			<button name="operationMulti" type="button" value="*"> * </button>
-			<button name="operationDiv" type="button" value="/"> / </button>
+			<button name="operationAdd" type="button" value="+" class="biggerButtons"> + </button>
+			<button name="operationSub" type="button" value="-" class="biggerButtons"> - </button>
+			<button name="operationMulti" type="button" value="*" class="biggerButtons"> * </button>
+			<button name="operationDiv" type="button" value="/" class="biggerButtons"> / </button>
 		</div>
 		
 		<div class="firstColum">
 		
-			<button name="button" type="button" value="1"> 1 </button>
-			<button name="button" type="button" value="2"> 2 </button>
-			<button name="button" type="button" value="3"> 3 </button>
+			<button name="button" type="button" value="1" class="biggerButtons"> 1 </button>
+			<button name="button" type="button" value="2" class="biggerButtons"> 2 </button>
+			<button name="button" type="button" value="3" class="biggerButtons"> 3 </button>
 		</div>
 		<div class="secondColum">
 		
-			<button name="button" type="button" value="4"> 4 </button>
-			<button name="button" type="button" value="5"> 5 </button>
-			<button name="button" type="button" value="6"> 6 </button>
+			<button name="button" type="button" value="4" class="biggerButtons"> 4 </button>
+			<button name="button" type="button" value="5" class="biggerButtons"> 5 </button>
+			<button name="button" type="button" value="6" class="biggerButtons"> 6 </button>
 		</div>
 		<div class="thirdColum">
 		
-			<button name="button" type="button" value="7"> 7 </button>
-			<button name="button" type="button" value="8"> 8 </button>
-			<button name="button" type="button" value="9"> 9 </button>
+			<button name="button" type="button" value="7" class="biggerButtons"> 7 </button>
+			<button name="button" type="button" value="8" class="biggerButtons"> 8 </button>
+			<button name="button" type="button" value="9" class="biggerButtons"> 9 </button>
 			
 			
 		</div>
 		<div class="fourthColum">
 		
-			<button name="button" type="button" value="0"> 0 </button>
-			<button type="submit" name="button" value="="> = </button>
+			<button name="button" type="button" value="0" class="biggerButtons"> 0 </button>
+			<button type="submit" name="button" value="=" class="biggerButtons"> = </button>
 		</div>
 		
 		<div class="C"> 

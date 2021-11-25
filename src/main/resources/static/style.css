@@ -1,9 +1,11 @@
 .wholeCalculater{
       text-align: center;
-      background-image: linear-gradient(to bottom, #059624, #3dab23, #61c120, #84d61b, #a8eb12);
+      background-image: linear-gradient(to bottom, #0f942a, #52a64f, #7cb873, #a1ca98, #c5dcbe);
       width: 220px;
       margin: 0 auto;
       border-radius: 20px;
+      box-shadow: 10px 10px 15px rgb(98, 150, 21);
+      
 }
 
 .operations{
@@ -46,6 +48,19 @@
 .C{
       padding: 15px;
       border-radius:  0 0 15px 15px ;
+      font-size: 20px;
 }
+
+.calculationText{
+      font-size: 30px;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.biggerButtons{
+      height: 35px;
+    width: 35px;
+}
+
+ 
 
 
